@@ -17,7 +17,7 @@ body {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
 
 a {
@@ -59,6 +59,8 @@ header h1 {
 #articles {
     background-color: #0A1A23;
     text-align: center;
+    height: 15rem;
+    overflow: scroll;
 }
 
 #articles h2 {
