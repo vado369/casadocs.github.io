@@ -59,8 +59,6 @@ header h1 {
 #articles {
     background-color: #0A1A23;
     text-align: center;
-    height: 15rem;
-    overflow: scroll;
 }
 
 #articles h2 {
@@ -72,6 +70,8 @@ header h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 15rem;
+    overflow: scroll;
 }
 
 .button {
