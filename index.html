@@ -22,7 +22,7 @@
         <section id="welcome" class="section">
             <div class="container">
                 <p>Voici mes dernières recherches. N'hésite pas à partager le bot avec tes amis !</p>
-                <p style="margin-top: 5px;" >⚠ Courte publicité de 30 sec max au début ⚠</p>
+                <p style="margin-top: 5px;">⚠ Courte publicité de 30 sec max au début ⚠</p>
             </div>
         </section>
 
@@ -30,8 +30,11 @@
             <div class="container">
                 <h2>Recherches récentes</h2>
                 <div class="button-container">
-                    <a id="socialFi" href="javascript:void(0)"  class="button">Gagner de l'argent avec les SocialFi</a>
-                    <a id="fansToken" href="javascript:void(0)"  class="button">Les Fans Tokens Crypto</a>
+                    <a id="socialFi" href="javascript:void(0)" class="button" idd="806"
+                        urlTo="https://telegra.ph/Comment-gagner-de-largent-sur-SocialFi-Landscape--de-Farcaster-%C3%A0-Crypto-OnlyFans-06-29">Gagner
+                        de l'argent avec les SocialFi</a>
+                    <a id="fansToken" href="javascript:void(0)" class="button" idd="819"
+                        urlTo="https://telegra.ph/Les-Fans-Tokens-Crypto-07-15">Les Fans Tokens Crypto</a>
                     <!-- Ajouter d'autres boutons pour chaque nouvel article -->
                 </div>
             </div>
@@ -43,39 +46,37 @@
             <p>Build with ❤ by <a href="https://t.me/Elcasa1" target="_blank" rel="noopener noreferrer">EL CASA</a></p>
         </div>
     </footer>
-     <script>
+    <script>
+
+        function showAds(id, url) {
             // insert your block id
-            const AdController = window.Adsgram.init({ blockId: "806" });
-            const button = document.getElementById('socialFi');
-            button.addEventListener('click', () => {
-                AdController.show().then((result) => {
-                    // user watch ad till the end
-                    // your code to reward user
-                    //alert('Reward');
-                    window.location.href = "https://telegra.ph/Comment-gagner-de-largent-sur-SocialFi-Landscape--de-Farcaster-%C3%A0-Crypto-OnlyFans-06-29";
-                }).catch((result) => {
-                    // user skipped video or get error during playing ad
-                    // do nothing or whatever you want
-                    alert(JSON.stringify(result, null, 4));
-                })
+            // 806
+            // "https://telegra.ph/Comment-gagner-de-largent-sur-SocialFi-Landscape--de-Farcaster-%C3%A0-Crypto-OnlyFans-06-29"
+            const AdController = window.Adsgram.init({ blockId: id });
+
+            AdController.show().then((result) => {
+                // user watch ad till the end
+                // your code to reward user
+                //alert('Reward');
+                window.location.href = url;
+            }).catch((result) => {
+                // user skipped video or get error during playing ad
+                // do nothing or whatever you want
+                alert(JSON.stringify(result, null, 4));
             })
 
-         // insert your block id
-            const AdController2 = window.Adsgram.init({ blockId: "819" });
-            const button2 = document.getElementById('fansToken');
-            button2.addEventListener('click', () => {
-                AdController2.show().then((result) => {
-                    // user watch ad till the end
-                    // your code to reward user
-                    //alert('Reward');
-                    window.location.href = "https://telegra.ph/Les-Fans-Tokens-Crypto-07-15";
-                }).catch((result) => {
-                    // user skipped video or get error during playing ad
-                    // do nothing or whatever you want
-                    alert(JSON.stringify(result, null, 4));
-                })
+        }
+
+        const allButton = ["socialFi", "fansToken"];
+
+        allButton.forEach(buttonId => {
+            var button = document.getElementById(buttonId);
+            button.addEventListener('click', () => {
+                showAds(button.getAttribute("idd"), button.getAttribute("urlTo"));
             })
-        </script>
+        });
+
+    </script>
 </body>
 
 </html>
